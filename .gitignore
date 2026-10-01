@@ -30,7 +30,7 @@ dist-ssr
 *.sw?
 
 # HTML único gerado por "npm run single" (regenerável)
-nice-one-arquivo-unico.html
+# nice-one-arquivo-unico.html vai versionado (entregue pelo link)
 dist-single
 
 # O Pages serve o dist/ pronto, entao ele VAI versionado

@@ -11,5 +11,8 @@
  * `BASE_URL` é injetado pelo Vite a partir do `base` e já termina em barra.
  */
 export function asset(caminho: string): string {
+  // No arquivo único o script de build já trocou o caminho por um data URI;
+  // prefixar a base aqui produziria "./data:image/…", que não carrega.
+  if (caminho.startsWith('data:')) return caminho;
   return import.meta.env.BASE_URL + caminho.replace(/^\/+/, '');
 }

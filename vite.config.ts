@@ -12,6 +12,7 @@ const arquivoUnico = process.env.SINGLE_FILE === '1';
  * caminhos dos assets precisam sair com esse prefixo. BASE_PATH permite
  * trocar isso sem mexer no código; o arquivo único embute tudo e usa './'.
  */
+// O arquivo único abre por file://, então os caminhos precisam ser relativos.
 const base = arquivoUnico ? './' : (process.env.BASE_PATH ?? '/');
 
 export default defineConfig({
