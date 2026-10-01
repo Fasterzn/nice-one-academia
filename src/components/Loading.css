@@ -1,0 +1,20 @@
+.loading {
+  min-height: 60svh;
+  display: grid;
+  place-items: center;
+}
+
+.loading__spinner {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 3px solid var(--color-border-strong);
+  border-top-color: var(--color-primary);
+  animation: loading-spin 700ms linear infinite;
+}
+
+@keyframes loading-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

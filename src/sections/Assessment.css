@@ -1,0 +1,69 @@
+.assessment {
+  padding-block: clamp(2rem, 6vw, 4rem);
+}
+
+.assessment__card {
+  display: grid;
+  gap: 1.75rem;
+  align-items: center;
+  padding: clamp(2rem, 6vw, 3.5rem);
+  background: var(--color-dark);
+  color: #fff;
+  border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.assessment__card h2,
+.assessment__card .kicker {
+  color: #fff;
+}
+
+.assessment__card .kicker {
+  color: var(--color-primary-bright);
+}
+
+.assessment__card .hl {
+  color: var(--color-primary-bright);
+}
+
+.assessment__card .lead {
+  color: var(--color-muted-on-dark);
+}
+
+/* Chevrons duplos da linguagem da marca */
+.assessment__card::after {
+  content: '»';
+  position: absolute;
+  right: -0.06em;
+  bottom: -0.34em;
+  font-family: var(--font-display);
+  font-size: clamp(9rem, 22vw, 16rem);
+  line-height: 1;
+  color: rgba(70, 181, 77, 0.16);
+  pointer-events: none;
+}
+
+.assessment__text {
+  display: grid;
+  gap: 1rem;
+  position: relative;
+  align-content: start;
+}
+
+.assessment__text h2 {
+  max-width: 16ch;
+  text-wrap: balance;
+}
+
+.assessment .btn {
+  position: relative;
+  justify-self: start;
+}
+
+@media (min-width: 900px) {
+  .assessment__card {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 3rem;
+  }
+}

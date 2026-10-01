@@ -1,0 +1,89 @@
+.about__inner {
+  display: grid;
+  gap: clamp(2rem, 6vw, 4rem);
+  align-items: center;
+}
+
+.about__media {
+  position: relative;
+  /* Perto da resolução real da foto: exibir maior que isso deixa borrado. */
+  max-width: 440px;
+}
+
+.about__photo {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.about__photo .photo {
+  transition: transform var(--t-slow) var(--ease);
+}
+
+.about__media:hover .photo {
+  transform: scale(1.03);
+}
+
+/* Selo 20 anos, discreto, ancorado na quina da foto */
+.about__seal {
+  position: absolute;
+  right: -0.75rem;
+  bottom: -1rem;
+  width: clamp(86px, 22vw, 110px);
+  aspect-ratio: 1;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  background: var(--gradient-brand);
+  color: #fff;
+  border-radius: var(--radius-pill);
+  border: 5px solid #fff;
+  box-shadow: var(--shadow-md);
+  line-height: 1;
+}
+
+.about__seal-number {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 2.5rem);
+}
+
+.about__seal-text {
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.about__text {
+  display: grid;
+  gap: 1.25rem;
+  justify-items: start;
+  align-content: start;
+}
+
+.about__text h2 {
+  max-width: 12ch;
+  text-wrap: balance;
+}
+
+.about__slogan {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: clamp(1.125rem, 2.4vw, 1.5rem);
+  line-height: 1.15;
+  padding-left: 1.25rem;
+  border-left: 3px solid var(--color-primary);
+  max-width: 24ch;
+}
+
+@media (min-width: 900px) {
+  .about__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .about__text {
+    padding-block: 1rem;
+  }
+}

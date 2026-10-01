@@ -1,0 +1,50 @@
+.marquee {
+  background: var(--gradient-brand);
+  color: var(--color-on-primary);
+  overflow: hidden;
+  padding-block: 0.7rem;
+  color: #fff;
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 42s linear infinite;
+}
+
+.marquee__group {
+  display: flex;
+  flex: none;
+}
+
+.marquee__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding-right: 1.25rem;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: 0.9375rem;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.marquee__dot {
+  opacity: 0.55;
+}
+
+/* Anda para a direita: o que sai de um lado volta pelo outro, sem emenda. */
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track {
+    animation: none;
+  }
+}

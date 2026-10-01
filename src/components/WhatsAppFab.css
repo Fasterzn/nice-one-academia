@@ -1,0 +1,57 @@
+.fab {
+  position: fixed;
+  right: var(--gutter);
+  bottom: calc(1rem + env(safe-area-inset-bottom));
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 58px;
+  height: 58px;
+  border-radius: var(--radius-pill);
+  background: var(--gradient-brand);
+  color: #fff;
+  box-shadow: var(--shadow-green);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px) scale(0.92);
+  transition: opacity var(--t-normal) var(--ease), transform var(--t-normal) var(--ease),
+    visibility var(--t-normal) var(--ease), background var(--t-fast) var(--ease);
+}
+
+.fab--in {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.fab:hover {
+  filter: brightness(1.06);
+}
+
+.fab:active {
+  transform: scale(0.96);
+}
+
+.fab__label {
+  display: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .fab {
+    width: auto;
+    height: 56px;
+    padding-inline: 1.5rem;
+    bottom: 1.5rem;
+  }
+
+  .fab__label {
+    display: inline;
+  }
+}

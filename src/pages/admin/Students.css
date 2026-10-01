@@ -1,0 +1,62 @@
+.admin__busca {
+  display: grid;
+  gap: 0.75rem;
+  align-items: end;
+}
+
+.admin__busca-campo {
+  min-width: 0;
+}
+
+.admin__tabela-wrap {
+  overflow-x: auto;
+}
+
+.admin__tabela {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  min-width: 420px;
+}
+
+.admin__tabela thead th {
+  background: var(--gradient-brand);
+  color: var(--color-on-primary);
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.06em;
+  padding: 0.55rem 0.9rem;
+}
+
+.admin__tabela tbody th,
+.admin__tabela tbody td {
+  padding: 0.7rem 0.9rem;
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--fs-small);
+  font-weight: 400;
+}
+
+.admin__tabela tbody th {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.admin__tabela tbody td {
+  color: var(--color-muted);
+}
+
+.admin__paginacao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 600px) {
+  .admin__busca {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+}

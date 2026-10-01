@@ -1,0 +1,32 @@
+.section-title {
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+/* A medida curta vale para o título — não para o texto de apoio. */
+.section-title h2 {
+  max-width: 24ch;
+  text-wrap: balance;
+}
+
+.section-title__lead {
+  max-width: 52ch;
+}
+
+.section-title--center {
+  margin-inline: auto;
+  justify-items: center;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .section-title h2 {
+    max-width: 18ch;
+  }
+
+  .section-title__lead {
+    max-width: 46ch;
+  }
+}

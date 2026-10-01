@@ -1,0 +1,234 @@
+/* Mobile: carrossel com scroll-snap ------------------------------------- */
+
+.units__track {
+  list-style: none;
+  /* Sem sangramento: o primeiro card começa exatamente onde começa o título. */
+  padding: 0.5rem 0 1rem;
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.units__track::-webkit-scrollbar {
+  display: none;
+}
+
+.units__card {
+  flex: 0 0 min(82vw, 360px);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--t-slow) var(--ease), transform var(--t-slow) var(--ease),
+    box-shadow var(--t-fast) var(--ease);
+}
+
+.units__card--in {
+  opacity: 1;
+  transform: none;
+}
+
+.units__card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.units__photo {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--color-surface-2);
+}
+
+.units__photo .photo {
+  transition: transform var(--t-slow) var(--ease);
+}
+
+.units__card:hover .photo {
+  transform: scale(1.04);
+}
+
+.units__index {
+  position: absolute;
+  left: 0.85rem;
+  top: 0.85rem;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  min-width: 38px;
+  height: 38px;
+  padding-inline: 0.4rem;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.95);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  line-height: 1;
+  color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Só aparece nas unidades com 24h confirmado. */
+.units__badge {
+  position: absolute;
+  right: 0.85rem;
+  top: 0.85rem;
+  z-index: 1;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-pill);
+  background: var(--gradient-brand);
+  color: #fff;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: var(--shadow-sm);
+}
+
+.units__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.35rem;
+  flex: 1;
+}
+
+.units__name {
+  font-size: 1.5rem;
+}
+
+.units__place {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: var(--fs-small);
+  color: var(--color-muted);
+  line-height: 1.45;
+  flex: 1;
+}
+
+.units__place svg {
+  flex: none;
+  margin-top: 3px;
+  color: var(--color-primary);
+}
+
+.units__city {
+  display: block;
+}
+
+.units__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.units__wpp,
+.units__map {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 46px;
+  padding: 0.5rem 1.15rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 2px solid transparent;
+  flex: 1 1 132px;
+  transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease),
+    border-color var(--t-fast) var(--ease);
+}
+
+.units__wpp {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.units__wpp:hover {
+  background: var(--color-primary-dark);
+}
+
+.units__map {
+  border-color: var(--color-border-strong);
+  color: var(--color-text);
+}
+
+.units__map:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: rgba(21, 127, 51, 0.06);
+}
+
+/* Indicadores do carrossel */
+.units__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+}
+
+.units__dot {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-pill);
+}
+
+.units__dot::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: var(--color-border-strong);
+  transition: background var(--t-fast) var(--ease), width var(--t-fast) var(--ease);
+}
+
+.units__dot--on::before {
+  background: var(--color-primary);
+  width: 26px;
+}
+
+/* Desktop: grade editorial 3 em cima, 2 embaixo ------------------------- */
+
+/* Desktop: grade uniforme — 3 cards iguais em cima, 2 centralizados embaixo.
+   Todos com a mesma largura, a mesma foto 4:3 e os botões na mesma altura. */
+@media (min-width: 1024px) {
+  .units__track {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.5rem;
+    overflow: visible;
+    padding-inline: 0;
+    margin-inline: 0;
+  }
+
+  .units__card {
+    flex: none;
+    grid-column: span 2;
+  }
+
+  /* Os dois últimos ficam centralizados, sem buraco na linha */
+  .units__card:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+
+  .units__card:nth-child(5) {
+    grid-column: 4 / span 2;
+  }
+
+  .units__dots {
+    display: none;
+  }
+}

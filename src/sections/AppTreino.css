@@ -1,0 +1,75 @@
+.app {
+  padding-block: clamp(3rem, 8vw, 5rem);
+}
+
+.app__inner {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+  justify-items: start;
+}
+
+.app__text {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.app__text h2 {
+  max-width: 12ch;
+}
+
+.app__phone {
+  position: relative;
+  width: 150px;
+  aspect-ratio: 9 / 18;
+  justify-self: center;
+  border: 2px solid var(--color-border-strong);
+  border-radius: 22px;
+  background: var(--color-surface);
+  padding: 8px;
+  box-shadow: var(--shadow-md);
+}
+
+.app__notch {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 46px;
+  height: 5px;
+  border-radius: var(--radius-pill);
+  background: var(--color-border-strong);
+}
+
+.app__screen {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  background: var(--color-bg);
+  display: grid;
+  place-items: center;
+  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.app__screen .logo--md .logo__word {
+  font-size: 1.5rem;
+}
+
+.app__screen .logo--md .logo__sub {
+  font-size: 0.5rem;
+  letter-spacing: 0.34em;
+}
+
+@media (min-width: 768px) {
+  .app__inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 4rem;
+  }
+
+  .app__phone {
+    width: 180px;
+  }
+}

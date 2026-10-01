@@ -1,0 +1,72 @@
+:root {
+  /* Cor — tema verde e branco, tirado da logo da Nice One --------------- */
+
+  /* Verde escuro o bastante para texto branco em cima passar em AA (5:1). */
+  --color-primary: #157f33;
+  --color-primary-dark: #0f6327;
+  /* Verde vivo da logo — para destaques grandes, ícones e linhas. */
+  --color-primary-bright: #46b54d;
+  --gradient-brand: linear-gradient(135deg, #2fa84f 0%, #7dc242 100%);
+
+  --color-bg: #ffffff;
+  --color-surface: #f4f7f4;
+  --color-surface-2: #e9efe9;
+  --color-dark: #0e1a12;
+  --color-dark-2: #16261c;
+
+  --color-border: rgba(14, 26, 18, 0.1);
+  --color-border-strong: rgba(14, 26, 18, 0.2);
+
+  --color-text: #0e1a12;
+  --color-muted: #5c6b61;
+  --color-on-primary: #ffffff;
+  --color-on-dark: #ffffff;
+  --color-muted-on-dark: #b3c2b8;
+
+  /* Tipografia */
+  --font-display: 'Anton', 'Bebas Neue', Impact, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --fs-hero: clamp(2.6rem, 8vw, 6rem);
+  --fs-h2: clamp(1.9rem, 4.6vw, 3.5rem);
+  --fs-h3: clamp(1.25rem, 2.5vw, 1.75rem);
+  --fs-body: clamp(1rem, 1.1vw, 1.0625rem);
+  --fs-small: 0.9375rem;
+  --fs-kicker: 0.75rem;
+
+  /* Espaço */
+  --space-section: clamp(3.5rem, 8vw, 7rem);
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --container: 1200px;
+  --nav-h: 68px;
+  /* Faixa preta de topo da navbar */
+  --nav-top: 44px;
+  --nav-total: calc(var(--nav-h) + var(--nav-top));
+
+  /* Forma */
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --radius-pill: 999px;
+
+  /* Sombra — o que dá profundidade num tema claro */
+  --shadow-sm: 0 1px 2px rgba(14, 26, 18, 0.06), 0 2px 8px rgba(14, 26, 18, 0.04);
+  --shadow-md: 0 4px 12px rgba(14, 26, 18, 0.07), 0 12px 32px rgba(14, 26, 18, 0.07);
+  --shadow-lg: 0 8px 24px rgba(14, 26, 18, 0.09), 0 24px 60px rgba(14, 26, 18, 0.1);
+  --shadow-green: 0 8px 24px rgba(21, 127, 51, 0.28);
+
+  /* Movimento */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --t-fast: 180ms;
+  --t-normal: 400ms;
+  --t-slow: 700ms;
+
+  /* Textura sutil de grid */
+  --grid-line: rgba(14, 26, 18, 0.035);
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --nav-h: 84px;
+  }
+}

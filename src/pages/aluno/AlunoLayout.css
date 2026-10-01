@@ -1,0 +1,221 @@
+.aluno {
+  min-height: 100svh;
+  background: var(--color-surface);
+  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  padding-bottom: calc(3rem + env(safe-area-inset-bottom));
+}
+
+.aluno__bar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.aluno__bar-inner {
+  min-height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-block: 0.6rem;
+}
+
+.aluno__logo {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.aluno__nav {
+  display: flex;
+  gap: 0.25rem;
+  flex: 1;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.aluno__nav::-webkit-scrollbar {
+  display: none;
+}
+
+.aluno__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-inline: 0.85rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  white-space: nowrap;
+  transition: color var(--t-fast) var(--ease), background var(--t-fast) var(--ease);
+}
+
+.aluno__link:hover {
+  color: var(--color-text);
+}
+
+.aluno__link--on {
+  background: var(--color-surface);
+  color: var(--color-primary);
+}
+
+.aluno__sair {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 44px;
+  padding-inline: 0.85rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  transition: border-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+}
+
+.aluno__sair:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.aluno__main {
+  padding-top: clamp(2rem, 6vw, 3.5rem);
+}
+
+.aluno__title {
+  font-size: clamp(2rem, 6vw, 3.25rem);
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.aluno__grid {
+  display: grid;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* Sem coluna lateral, o conteúdo mantém medida de leitura — formulário
+   ocupando 1200px de largura não se lê. */
+.aluno__body:not(.aluno__grid) .aluno__content {
+  max-width: 780px;
+}
+
+.aluno__content,
+.aluno__aside {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+/* Cartões da área -------------------------------------------------------- */
+
+.card {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: clamp(1.25rem, 4vw, 1.75rem);
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.card__title {
+  font-size: 1.25rem;
+}
+
+.card__text {
+  color: var(--color-muted);
+  font-size: var(--fs-small);
+}
+
+.card__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.card--danger {
+  border-color: rgba(217, 45, 32, 0.35);
+}
+
+.card__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  align-self: start;
+  justify-self: start;
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.card__badge--on {
+  background: var(--gradient-brand);
+  color: #fff;
+}
+
+.card__badge--off {
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-muted);
+}
+
+.aluno__qr {
+  background: #fff;
+  padding: 0.75rem;
+  border-radius: var(--radius-sm);
+  width: fit-content;
+}
+
+.aluno__qr svg {
+  display: block;
+  width: 180px;
+  height: 180px;
+}
+
+.aluno__secret {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  word-break: break-all;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 0.8rem;
+  color: var(--color-primary);
+}
+
+@media (min-width: 900px) {
+  .aluno__grid {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 719px) {
+  .aluno__sair-label {
+    display: none;
+  }
+
+  /* O menu ganha a própria linha: nenhum item fica cortado no meio da palavra. */
+  .aluno__nav {
+    order: 3;
+    flex-basis: 100%;
+    margin-inline: calc(var(--gutter) * -1);
+    padding-inline: var(--gutter);
+  }
+
+  .aluno__logo {
+    flex: 1;
+  }
+}

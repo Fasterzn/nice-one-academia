@@ -1,0 +1,121 @@
+.footer {
+  background: var(--color-dark);
+  color: var(--color-on-dark);
+  padding-top: clamp(3rem, 7vw, 4.5rem);
+  padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
+}
+
+.footer__inner {
+  display: grid;
+  gap: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.footer__brand {
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+  align-content: start;
+}
+
+.footer__slogan {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: clamp(1rem, 2.4vw, 1.25rem);
+  line-height: 1.2;
+  max-width: 22ch;
+  color: var(--color-primary-bright);
+}
+
+.footer__social {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.footer__social a {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-pill);
+  color: var(--color-muted-on-dark);
+  transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+}
+
+.footer__social a:hover {
+  color: #fff;
+  border-color: var(--color-primary-bright);
+  background: var(--color-primary);
+}
+
+.footer__title {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-primary-bright);
+  margin-bottom: 1rem;
+}
+
+.footer__nav ul,
+.footer__units ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.footer__nav a {
+  font-size: var(--fs-small);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-muted-on-dark);
+  transition: color var(--t-fast) var(--ease);
+}
+
+.footer__nav a:hover {
+  color: #fff;
+}
+
+.footer__units li {
+  display: grid;
+  gap: 0.1rem;
+  font-size: var(--fs-small);
+  color: var(--color-muted-on-dark);
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer__units li:last-child {
+  border-bottom: 0;
+}
+
+.footer__units strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+.footer__unit-phone {
+  color: var(--color-primary-bright);
+}
+
+.footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 0.75rem;
+  color: var(--color-muted-on-dark);
+}
+
+@media (min-width: 768px) {
+  .footer__inner {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.6fr) minmax(0, 1fr);
+    gap: 3rem;
+  }
+}

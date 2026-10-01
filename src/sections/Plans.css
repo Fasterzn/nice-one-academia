@@ -1,0 +1,153 @@
+.plans {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.plans__bg {
+  display: none;
+}
+
+.plans__highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.75rem;
+  padding: 0.75rem 1.35rem;
+  background: #fff;
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.plans__highlight svg {
+  color: var(--color-primary);
+  flex: none;
+}
+
+.plans__list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.plans__card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--t-slow) var(--ease), transform var(--t-slow) var(--ease),
+    box-shadow var(--t-fast) var(--ease);
+}
+
+.plans__card--in {
+  opacity: 1;
+  transform: none;
+}
+
+.plans__card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* Os dois cartões recebem a mesma faixa da marca no topo */
+.plans__card {
+  position: relative;
+  overflow: hidden;
+}
+
+.plans__card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 6px;
+  background: var(--gradient-brand);
+}
+
+.plans__head {
+  display: grid;
+  gap: 0.35rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.plans__name {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+}
+
+.plans__payment {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.plans__features {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.plans__features li {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: var(--fs-small);
+}
+
+.plans__features svg {
+  color: #fff;
+  background: var(--color-primary);
+  border-radius: var(--radius-pill);
+  padding: 3px;
+  width: 22px;
+  height: 22px;
+  flex: none;
+}
+
+.plans__footnote {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  margin-top: -0.5rem;
+}
+
+/* Empurra o botão para a base: os dois cartões terminam na mesma linha,
+   mesmo com o cartão recorrente tendo a nota de juros a mais. */
+.plans__features {
+  flex: 1;
+}
+
+.plans__card .btn {
+  align-self: flex-start;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plans__card {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .plans__list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .plans__card .btn {
+    align-self: stretch;
+  }
+}

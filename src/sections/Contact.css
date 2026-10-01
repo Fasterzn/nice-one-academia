@@ -1,0 +1,209 @@
+.contact__grid {
+  display: grid;
+  gap: clamp(2rem, 5vw, 3rem);
+  align-items: start;
+}
+
+.contact__list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.contact__unit {
+  display: grid;
+  gap: 0.85rem;
+  padding: 1.25rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
+}
+
+.contact__unit:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-4px);
+}
+
+.contact__unit-head {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.contact__unit-name {
+  font-size: 1.375rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.contact__unit-24h {
+  font-family: var(--font-body);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.contact__unit-place {
+  font-size: var(--fs-small);
+  color: var(--color-muted);
+}
+
+.contact__unit-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.contact__wpp,
+.contact__maps {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 44px;
+  padding: 0.5rem 1.1rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  transition: background var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease),
+    color var(--t-fast) var(--ease);
+}
+
+.contact__wpp {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.contact__wpp:hover {
+  background: var(--color-primary-bright);
+}
+
+.contact__maps {
+  border-color: var(--color-border-strong);
+}
+
+.contact__maps:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* Coluna lateral */
+.contact__aside {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.contact__box {
+  display: grid;
+  gap: 0.6rem;
+  padding: 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.contact__box-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.contact__box-title svg {
+  color: var(--color-primary);
+}
+
+.contact__phone {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  justify-self: start;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  line-height: 1;
+  transition: color var(--t-fast) var(--ease);
+}
+
+.contact__phone:hover {
+  color: var(--color-primary);
+}
+
+.contact__hours {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.contact__hours li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: var(--fs-small);
+  color: var(--color-muted);
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.contact__hours li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.contact__hours strong {
+  color: var(--color-text);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.contact__hours-note {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+.contact__social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+
+.contact__social a {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--color-primary);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.contact__social a:hover {
+  color: var(--color-primary-bright);
+}
+
+@media (min-width: 900px) {
+  .contact__grid {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    gap: clamp(2rem, 4vw, 3rem);
+  }
+
+  /* Os botões ficam abaixo do endereço: em duas colunas o endereço
+     ficaria estreito demais e quebraria em três linhas. */
+  .contact__unit {
+    padding: 1.5rem;
+  }
+}
