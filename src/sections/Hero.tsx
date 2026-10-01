@@ -3,6 +3,7 @@ import { Button } from '../components/Button';
 import { SectionLink } from '../components/SectionLink';
 import { useUnitPicker } from '../components/unit-picker-context';
 import { googleRating } from '../data/site';
+import { asset } from '../lib/asset';
 import './Hero.css';
 
 export function Hero() {
@@ -12,9 +13,9 @@ export function Hero() {
     <section className="hero" id="inicio">
       <div className="hero__media">
         <picture>
-          <source media="(min-width: 768px)" srcSet="/images/hero.webp" />
+          <source media="(min-width: 768px)" srcSet={asset('images/hero.webp')} />
           <img
-            src="/images/hero-mobile.webp"
+            src={asset('images/hero-mobile.webp')}
             alt="Salão de musculação da Nice One Academia em Sertãozinho"
             width={1350}
             height={759}

@@ -1,5 +1,6 @@
 import { Photo } from '../components/Photo';
 import { Reveal } from '../components/Reveal';
+import { asset } from '../lib/asset';
 import './About.css';
 
 export function About() {
@@ -9,7 +10,7 @@ export function About() {
         <Reveal className="about__media">
           <div className="about__photo">
             <Photo
-              src="/images/sobre.webp"
+              src={asset('images/sobre.webp')}
               alt="Salão de musculação da Nice One com as máquinas e a marca na parede"
               width={385}
               height={513}

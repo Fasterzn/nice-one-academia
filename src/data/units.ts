@@ -1,3 +1,4 @@
+import { asset } from '../lib/asset';
 export type Unit = {
   id: number;
   name: string;
@@ -24,7 +25,7 @@ export const units: Unit[] = [
     cep: '14160-100',
     whatsapp: '551635242224',
     whatsappDisplay: '(16) 3524-2224',
-    image: '/images/unidades/unidade-1.webp',
+    image: asset('images/unidades/unidade-1.webp'),
     is24h: false,
     hasClassSchedule: false,
   },
@@ -38,7 +39,7 @@ export const units: Unit[] = [
     cep: null, // TODO: confirmar com a Nice One
     whatsapp: '5516991366650',
     whatsappDisplay: '(16) 99136-6650',
-    image: '/images/unidades/unidade-2.webp',
+    image: asset('images/unidades/unidade-2.webp'),
     is24h: false,
     hasClassSchedule: false,
   },
@@ -51,7 +52,7 @@ export const units: Unit[] = [
     cep: '14161-310',
     whatsapp: '5516991863181',
     whatsappDisplay: '(16) 99186-3181',
-    image: '/images/unidades/unidade-3.webp',
+    image: asset('images/unidades/unidade-3.webp'),
     is24h: false,
     hasClassSchedule: true,
   },
@@ -64,7 +65,7 @@ export const units: Unit[] = [
     cep: '14169-025',
     whatsapp: '5516993051120',
     whatsappDisplay: '(16) 99305-1120',
-    image: '/images/unidades/unidade-4.webp',
+    image: asset('images/unidades/unidade-4.webp'),
     is24h: true,
     hasClassSchedule: false,
   },
@@ -77,7 +78,7 @@ export const units: Unit[] = [
     cep: '14178-100',
     whatsapp: '5516994114903',
     whatsappDisplay: '(16) 99411-4903',
-    image: '/images/unidades/unidade-5.webp',
+    image: asset('images/unidades/unidade-5.webp'),
     is24h: false,
     hasClassSchedule: true,
   },

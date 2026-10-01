@@ -88,6 +88,19 @@ if (!html.includes(`href="${BASE}`)) problemas.push(`os assets nao receberam a b
 const semComentario = html.replace(/<!--[\s\S]*?-->/g, '');
 if (semComentario.includes('niceone.com.br')) problemas.push('ainda aponta para niceone.com.br');
 
+// Caminho absoluto de public/ escrito no código não passa pela reescrita do
+// Vite e apontaria para a raiz do domínio — em subpasta, 404 em toda foto.
+// Use o helper asset() de src/lib/asset.ts.
+if (BASE !== '/') {
+  const fs3 = await import('node:fs');
+  const soltos = readdirSync(join(dist, 'assets'))
+    .filter((f) => f.endsWith('.js'))
+    .flatMap((f) => [...fs3.readFileSync(join(dist, 'assets', f), 'utf8').matchAll(/"\/images\/[^"]+"/g)].map((m) => m[0]));
+  if (soltos.length) {
+    problemas.push(`caminho de imagem sem a base (use asset()): ${[...new Set(soltos)].slice(0, 3).join(', ')}`);
+  }
+}
+
 if (!comAluno) {
   // "*.supabase.co" aparece dentro da propria biblioteca; o que nao pode
   // vazar e a URL concreta do projeto.
